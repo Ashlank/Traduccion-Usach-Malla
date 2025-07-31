@@ -60,6 +60,9 @@ export default function App() {
           })
         }
       </div>
+      <footer>
+        <p className='font-semibold text-center'>Hecho con ❤️ por Ashlank</p>
+      </footer>
     </div>
   )
 }
