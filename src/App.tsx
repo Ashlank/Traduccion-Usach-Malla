@@ -49,9 +49,9 @@ export default function App() {
   }
 
   return (
-    <div className='flex flex-col'>
-      <CardTitle className='text-center p-4'>LICENCIATURA EN LINGUÍSTICA APLICADA A LA TRADUCCIÓN INGLÉS - JAPONÉS E INGLÉS PORTUGUÉS | <b>USACH</b></CardTitle>
-      <div className='flex flex-col sm:flex-row gap-8 overflow-auto'>
+    <div className='flex flex-col p-4 bg-background'>
+      <CardTitle className='text-center m-2'>LICENCIATURA EN LINGUÍSTICA APLICADA A LA TRADUCCIÓN INGLÉS - JAPONÉS E INGLÉS PORTUGUÉS | <b>USACH</b></CardTitle>
+      <div className='flex flex-col sm:flex-row gap-8 overflow-auto my-4 pb-1'>
         {
           semesterData.map(({ semester, semesterSubjects}) => {
             return ( 
@@ -76,7 +76,7 @@ export function Semester({ subjects, approvedSubjects, toggleSubjectApproval }: 
   return (
     <Card className='bg-card text-card-foreground flex flex-col min-w-xs text-center py-3 gap-3'>
       <CardHeader>
-        <CardTitle>
+        <CardTitle className='text-xl'>
           { subjects[0].semester + '° Semestre' }
         </CardTitle>
       </CardHeader>
@@ -97,10 +97,10 @@ function Subject({ subject, approvedSubjects, toggleSubjectApproval }: { subject
   const isPrerequisitesapprovedSubjects = subject.prerequisites.every(el => approvedSubjects.includes(el));
   const isapprovedSubjects = approvedSubjects.includes(subject.id)
 
-  const defaultStyles = 'bg-card text-card-foreground p-3 border border-border shadow-sm hover:shadow-lg shadow-accent'
-  const blockedStyles = 'bg-muted text-muted-foreground opacity-60 cursor-not-allowed shadow-none'
+  const defaultStyles = 'bg-card text-card-foreground p-3 border border-border shadow-xs hover:shadow-lg shadow-accent'
+  const blockedStyles = 'bg-muted text-muted-foreground opacity-60 cursor-not-allowed shadow-none hover:shadow-none'
   const unblockedStyles = 'bg-secondary text-secondary-foreground opacity-100 cursor-pointer'
-  const approvedSubjectsStyles = 'bg-primary text-primary-foreground cursor-pointer'
+  const approvedSubjectsStyles = 'bg-primary text-primary-foreground cursor-pointer line-through'
   
   const getStyles = () => {
     if(isapprovedSubjects) return approvedSubjectsStyles
